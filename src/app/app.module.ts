@@ -25,7 +25,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 //Permisos
 
-import { AndroidPermissionsOriginal } from '@ionic-native/android-permissions';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +37,7 @@ import { AndroidPermissionsOriginal } from '@ionic-native/android-permissions';
     StatusBar,
     Geolocation,
     SplashScreen,
-    AndroidPermissionsOriginal,
+    AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

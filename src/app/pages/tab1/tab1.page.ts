@@ -1,4 +1,4 @@
-import { AndroidPermissions } from '@ionic-native/android-permissions';
+import {AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { GooglemapsService } from './../../services/googlemaps.service';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -28,6 +28,14 @@ export class Tab1Page implements OnInit{
     this.googleMaps.getMarcadores().subscribe(marker => {
       this.marcadores = marker;
       console.log(this.marcadores);
+
+      this.permisos.checkPermission(this.permisos.PERMISSION.Geolocation).then(
+        result => console.log('Has permission?', result.hasPermission),
+        err => this.permisos.requestPermission(this.permisos.PERMISSION.Geolocation)
+      );
+      
+      this.permisos.requestPermissions([this.permisos.PERMISSION.Geolocation, 
+        this.permisos.PERMISSION.GET_ACCOUNTS]);
 
       this.geolocation.getCurrentPosition().then((resp) => {
          resp.coords.latitude;
