@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>adduser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input required type="text" [(ngModel)]="nombre" name="nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label  position="floating">Apellido</ion-label>
+    <ion-input required type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Correo electrónico</ion-label>
+    <ion-input required type="text" [(ngModel)]="email" name="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input required type="password" [(ngModel)]="pass" name="pass"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Confirmar Contraseña</ion-label>
+    <ion-input required type="password" [(ngModel)]="repass" name="repass"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button class="bInput" color="bInput" (click)="onSubmitRegister()" expand="block">Registrar</ion-button>
+</ion-content>

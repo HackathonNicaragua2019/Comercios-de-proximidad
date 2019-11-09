@@ -1,0 +1,7 @@
+{
+  "name": "Cacao",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
