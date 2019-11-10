@@ -110,7 +110,7 @@ export class Tab1Page implements OnInit{
     google.maps.event.addListener(informacion, 'domready', () => {
       const  clickableItem = document.getElementById('clickableItem');
       clickableItem.addEventListener('click', () => {
-        this.router.navigate(['/home', marcador.id]);
+        this.router.navigate(['/comerce', marcador.id]);
       });
 
     });

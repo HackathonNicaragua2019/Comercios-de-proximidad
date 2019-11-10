@@ -4,21 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <ion-card>
-      <ion-img [src]="comercio.imagen"></ion-img>
+      <ion-img [src]="comercio.imagen" style="height: 50%;"></ion-img>
       <ion-card-header>
         <ion-card-title>{{comercio.nombre}}</ion-card-title>
       </ion-card-header>
   
       <ion-card-content>
         {{comercio.descripcion}}
-        <ion-buttons>
+        <hr/>
+        <ion-buttons slot="end">
           <ion-avatar (click)="abrirLista()">
-            <img src="/assets/carrito_ver.svg" alt="Ver carrito">
+              <i class="fas fa-shopping-cart fa-2x"></i>
           </ion-avatar>
           <ion-avatar (click)="eliminarCarrito()">
-            <img src="/assets/carrito_eli.svg" alt="Eliminar carrito">
+              <i class="fas fa-trash fa-2x"></i>
           </ion-avatar>
         </ion-buttons>
       </ion-card-content>
@@ -34,12 +35,13 @@
     <ion-list>
       <ion-item *ngFor="let item of filtro">
         <ion-avatar slot="start">
-          <ion-img src="{{item.imagen}}"></ion-img>
+          <ion-img [src]="item.image"></ion-img>
         </ion-avatar>
-        <ion-label>{{item.producto}}</ion-label>
-        <ion-label>{{item.precio}}</ion-label>
+        <ion-label>{{item.producto}} - C$ {{item.precio}}</ion-label>
         <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="agregarCarritoProductos(item.id)"></ion-icon>
+        {{item.imagen}}
       </ion-item>
     </ion-list>
+    
   </ion-content>
   

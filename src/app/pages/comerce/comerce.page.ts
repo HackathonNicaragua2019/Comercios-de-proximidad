@@ -1,3 +1,4 @@
+import { ListaModalComponent } from './../../component/lista-modal/lista-modal.component';
 import { ComercioService } from './../../services/comercio.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -12,14 +13,14 @@ import { ModalController, AlertController } from '@ionic/angular';
 })
 export class ComercePage implements OnInit {
 
-  private txtfitro: string = "";
+  txtfitro: string = "";
 
   private comercioId: string;
-  private comercio : any = [];
+  comercio : any = [];
   private carritoId: any = -1;
   private idUser: string = "";
   private prod: any = [];
-  private filtro : any = [];
+  filtro : any = [];
   private BAND = false;
 
   constructor(private activateRoute : ActivatedRoute,

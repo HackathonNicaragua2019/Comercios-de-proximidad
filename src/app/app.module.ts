@@ -1,3 +1,4 @@
+import { ListaModalComponent } from './component/lista-modal/lista-modal.component';
 import { firebaseConfig } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,8 +29,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ListaModalComponent],
+  entryComponents: [ListaModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule, FormsModule, AngularFirestoreModule,
   AngularFireStorageModule],
