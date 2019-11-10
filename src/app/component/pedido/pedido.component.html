@@ -1,3 +1,45 @@
-<p>
-  pedido works!
-</p>
+<ion-header>
+    <ion-toolbar color="banner" class="banner">
+      <ion-button slot="end" fill="clear" (click)="closeChat()">
+        <ion-icon name="close">
+        </ion-icon>
+      </ion-button>
+      <ion-title>Lista de productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          Producto
+        </ion-col>
+        <ion-col>
+          Precio/Cantidad
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let item of productos">
+        <ion-col>
+          {{item.producto}}
+        </ion-col>
+        <ion-col>
+              {{item.precio}} / {{item.cantidad}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="updateEnviarCarrito(id)">Entregar</ion-button>
+        </ion-col>
+        <ion-col style="text-align: right">
+          Total: {{total}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-footer>
+  

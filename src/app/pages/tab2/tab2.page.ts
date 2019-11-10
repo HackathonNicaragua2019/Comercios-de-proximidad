@@ -115,7 +115,6 @@ export class Tab2Page {
       {
         this.arregloUser = user;
           this.arregloUser.forEach(datosUser => {
-            console.log(datosUser);
             this.arregloPedidos[this.i].nombre = datosUser.nombre + " " + datosUser.apellido;
           });
         this.i++;
