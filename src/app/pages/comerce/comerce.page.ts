@@ -93,7 +93,6 @@ export class ComercePage implements OnInit {
           const nombreCompleto = nombre[0].nombre + " " + nombre[0].apellido;
           this.comercioService.agregarCarrito(this.idUser, this.comercioId, false, nombreCompleto);
        });
-       
     }
 
     const alert = await this.alertCtrl.create({
