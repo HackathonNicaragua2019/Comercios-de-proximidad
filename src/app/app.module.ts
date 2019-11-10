@@ -1,3 +1,4 @@
+import { PedidoComponent } from './component/pedido/pedido.component';
 import { ListaModalComponent } from './component/lista-modal/lista-modal.component';
 import { firebaseConfig } from './../environments/environment';
 import { NgModule } from '@angular/core';
@@ -28,9 +29,13 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
+//Camara
+import { Camera } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+
 @NgModule({
-  declarations: [AppComponent, ListaModalComponent],
-  entryComponents: [ListaModalComponent],
+  declarations: [AppComponent, ListaModalComponent, PedidoComponent],
+  entryComponents: [ListaModalComponent, PedidoComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule, FormsModule, AngularFirestoreModule,
   AngularFireStorageModule],
@@ -39,6 +44,8 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     Geolocation,
     SplashScreen,
     AndroidPermissions,
+    Camera,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
