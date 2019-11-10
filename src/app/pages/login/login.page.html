@@ -1,11 +1,12 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="bannerColor" class="bannerColor">
       <ion-title class="ion-text-center">Acceso</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
-  <img class="icon" src="assets/icon/favicon.png" />
+  <img class="icon" src="assets/icon/login_part-01-02.svg" />
+  <img class="icon" src="assets/icon/login_part-01-01.svg" />
   <ion-item>
     <ion-label position="floating">Correo electrónico</ion-label>
     <ion-input type="email" [(ngModel)]="email" required name="email"></ion-input>
@@ -14,6 +15,11 @@
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="pass" required name="password"></ion-input>
     </ion-item>
-
-    <ion-button (click)="onSubmitLogin()" expand="block">Entrar</ion-button>
+    <br />
+    <ion-button (click)="onSubmitLogin()" class="buttonColor" color="buttonColor" expand="block">Entrar</ion-button>
+    <div class="redes">
+        Acceso usando: 
+        <br /><br />
+        <i class="fab fa-google fa-3x"></i>
+    </div>
 </ion-content>

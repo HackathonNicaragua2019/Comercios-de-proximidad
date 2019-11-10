@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/services/login.service';
 import {AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { GooglemapsService } from './../../services/googlemaps.service';
 import { Router } from '@angular/router';
@@ -21,7 +22,8 @@ export class Tab1Page implements OnInit{
     private loadCtrl: LoadingController,
     public router: Router,
     private googleMaps: GooglemapsService, 
-    private permisos: AndroidPermissions) {}
+    private permisos: AndroidPermissions,
+    private login: LoginService) {}
 
   ngOnInit()
   {
@@ -40,12 +42,18 @@ export class Tab1Page implements OnInit{
       this.geolocation.getCurrentPosition().then((resp) => {
          resp.coords.latitude;
          resp.coords.longitude;
-         alert(resp.coords.latitude + " " + resp.coords.longitude);
         this.loadMap(this.marcadores, resp.coords.latitude, resp.coords.longitude);
       }).catch((error) => {
         alert("No hay permisos");
       });
     });
+  }
+
+  logout()
+  {
+    const valor = this.login.logout();
+    console.log(valor);
+    this.router.navigate(["/login"]);
   }
 
   async loadMap(marker, lat, lng)
@@ -82,6 +90,8 @@ export class Tab1Page implements OnInit{
         '<img src="'+ marcador.imagen +'" style="width: 100%" /><hr />'+
     '<input type="button" id="clickableItem" style="background: #038C8C; color: #D0E3E9" value="Ver comercio"\'>';
 
+    const image = "assets/icon/5px.png";
+    
     const marker = new google.maps.Marker({
       position: {
         lat: Number(marcador.lat),
@@ -90,7 +100,8 @@ export class Tab1Page implements OnInit{
       zoom: 8,
       map: this.mapRef,
       animation: google.maps.Animation.DROP,
-      title: marcador.nombre
+      title: marcador.nombre,
+      icon: image
     });
     const informacion = new google.maps.InfoWindow({
       content: texto
