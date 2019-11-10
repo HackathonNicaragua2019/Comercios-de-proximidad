@@ -145,6 +145,10 @@ export class ComercePage implements OnInit {
     }
   }
 
+  back(){
+    this.route.navigate(['']);
+  }
+
   abrirLista()
   {
     if (this.carritoId == -1)

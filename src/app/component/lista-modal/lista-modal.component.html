@@ -1,3 +1,53 @@
-<p>
-  lista-modal works!
-</p>
+<ion-header>
+    <ion-toolbar color="banner" class="banner">
+      <ion-button slot="start" fill="clear" (click)="closeChat()">
+        <ion-icon name="close">
+  
+        </ion-icon>
+      </ion-button>
+      <ion-title>Lista de productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ul *ngIf="room">
+      <li *ngFor="let mensaje of room.messages">{{mensaje.content}}</li>
+    </ul>
+  
+    <ion-list>
+      <!-- Multi-line sliding item with icon options on both sides -->
+      <ion-item-sliding *ngFor="let item of mostrarProducto">
+        <ion-item>
+          <ion-label>
+            <h2>{{item.producto}}</h2>
+          </ion-label>
+          <ion-note slot="end">
+            {{item.cantidad}}
+          </ion-note>
+          <ion-note slot="end">
+            {{item.precio}}
+          </ion-note>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger">
+            <ion-icon slot="icon-only" name="trash" (click)="eliminarProducto(item.idpedido)"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  
+  </ion-content>
+  <ion-footer *ngIf="arregloPedido">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button align="right" (click)="updateEnviarCarrito(id)">Enviar</ion-button>
+        </ion-col>
+        <ion-col align="right" style="padding-top: 20px; padding-right: 20px;">
+          Total: {{total}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  
+  </ion-footer>

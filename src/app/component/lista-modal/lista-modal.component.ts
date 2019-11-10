@@ -11,10 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class ListaModalComponent implements OnInit {
 
   private id : any;
-  private arregloPedido : any = [];
-  private mostrarProducto : any = [];
+  arregloPedido : any = [];
+  mostrarProducto : any = [];
   private i : number = 0;
   private total: number = 0;
+
   constructor(private modalController : ModalController, private db : AngularFirestore,
               private  navParams : NavParams, private route : Router, private alertController : AlertController) { }
 
