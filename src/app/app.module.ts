@@ -1,3 +1,4 @@
+import { AddProductoComponent } from './component/add-producto/add-producto.component';
 import { PedidoComponent } from './component/pedido/pedido.component';
 import { ListaModalComponent } from './component/lista-modal/lista-modal.component';
 import { firebaseConfig } from './../environments/environment';
@@ -34,8 +35,8 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 
 @NgModule({
-  declarations: [AppComponent, ListaModalComponent, PedidoComponent],
-  entryComponents: [ListaModalComponent, PedidoComponent],
+  declarations: [AppComponent, ListaModalComponent, PedidoComponent, AddProductoComponent],
+  entryComponents: [ListaModalComponent, PedidoComponent, AddProductoComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule, FormsModule, AngularFirestoreModule,
   AngularFireStorageModule],

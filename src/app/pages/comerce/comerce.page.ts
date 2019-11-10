@@ -86,10 +86,14 @@ export class ComercePage implements OnInit {
   }
 
   async agregarCarritoProductos(id : string) {
-    this.comercioService.updateIdProducto(id);
     if (!this.BAND)
     {
-      this.comercioService.agregarCarrito(this.idUser, this.comercioId, false);
+      
+      this.comercioService.getNombre(this.idUser).valueChanges().subscribe((nombre: any) => {
+          const nombreCompleto = nombre[0].nombre + " " + nombre[0].apellido;
+          this.comercioService.agregarCarrito(this.idUser, this.comercioId, false, nombreCompleto);
+       });
+       
     }
 
     const alert = await this.alertCtrl.create({

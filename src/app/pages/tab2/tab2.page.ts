@@ -98,32 +98,15 @@ export class Tab2Page {
   ref => ref.where('idcomercio', '==', idcomercio).where("enviar",
     "==", true).where("entregado", "==", false));
 
+  this.arregloPedidos = [];
+
   carritoQuery.valueChanges().subscribe(carritos =>
   {
     this.arregloPedidos = carritos;
-    this.getUsuario(this.arregloPedidos);
   });
   }
 
-  getUsuario(arregloPedidos)
-  {
-    arregloPedidos.forEach(valores => {
-      let userQuery = this.db.collection('/usuarios',
-      ref => ref.where('id', '==', valores.idusuario));
-
-      userQuery.valueChanges().subscribe(user =>
-      {
-        this.arregloUser = user;
-          this.arregloUser.forEach(datosUser => {
-            this.arregloPedidos[this.i].nombre = datosUser.nombre + " " + datosUser.apellido;
-          });
-        this.i++;
-        });
-    });
-  }
-
 register(form) {
-console.log(form.value);
 }
 
 async getLatLng()

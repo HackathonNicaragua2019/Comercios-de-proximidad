@@ -46,17 +46,25 @@ export class ComercioService {
     return carritoQuery;
   }
 
-  async agregarCarrito(idUsuario: string, idComercio: string, enviar: boolean)
+  async agregarCarrito(idUsuario: string, idComercio: string, enviar: boolean, nombreCompleto)
   {
     await this.db.collection('carrito').add({
       idusuario: idUsuario,
       idcomercio: idComercio,
       enviar: enviar,
       id: "",
-      entregado: false
+      entregado: false,
+      nombre: nombreCompleto
     }).then(docRef => {
       this.db.collection('carrito').doc(docRef.id).update({ id: docRef.id});
     });
+  }
+
+  getNombre(idUsuario: string)
+  {
+    let nombre = this.db.collection('/usuarios',
+        ref => ref.where('id', '==', idUsuario));
+    return nombre;
   }
 
   agregarCarritoProducto(idproducto: string, idcarrito: string, cantidad: string)
@@ -87,8 +95,10 @@ export class ComercioService {
 
   getProducto2(comercio_id: string)
   {
+    console.log(comercio_id);
     let carritoQuery = this.db.collection('/productos',
         ref => ref.where('idnegocio', '==', comercio_id));
+        console.log(carritoQuery);
     return carritoQuery;
   }
 

@@ -1,3 +1,38 @@
-<p>
-  add-producto works!
-</p>
+<ion-header>
+    <ion-toolbar color="banner" class="banner">
+      <ion-button slot="end" fill="clear" (click)="closeChat()">
+        <ion-icon name="close">
+  
+        </ion-icon>
+      </ion-button>
+      <ion-title>Agregar productos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <form  #form="ngForm" (ngSubmit)="register(form)">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div text-center>
+              <h3>Agregar productos</h3>
+            </div>
+            <div padding>
+              <ion-item>
+                <ion-input  name="producto" [(ngModel)]="producto" type="text" placeholder="Nombre"  required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input  name="precio" [(ngModel)]="precio" type="number" placeholder="Precio C$"  required></ion-input>
+              </ion-item>
+              <ion-item>
+                <img [src]="downloadurl | async" alt="" *ngIf="downloadurl | async">
+                <ion-button (click)="openGalery()">Subir imagen...</ion-button>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button color="bInput" (click)="agregarProducto()" class="bInput"  size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>
